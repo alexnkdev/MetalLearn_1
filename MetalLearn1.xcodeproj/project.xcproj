@@ -14,6 +14,14 @@
     { "kind": "folder", "path": "MyTool", "target-membership": [ "MyTool" ] },
     {
       "kind": "group",
+      "name": "Frameworks",
+      "children": [
+        { "path": "<DEVELOPER>/Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS27.2.sdk/System/Library/Frameworks/QuartzCore.framework", "target-membership": [ { "build-phase": "MyTool/frameworks", "platforms": [ "ios", "macos", "tvos", "watchos", "xros" ] } ] },
+        { "path": "<DEVELOPER>/Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS27.2.sdk/System/Library/Frameworks/Foundation.framework", "target-membership": [ { "build-phase": "MyTool/frameworks", "platforms": [ "ios", "macos", "tvos", "watchos", "xros" ] } ] },
+        { "path": "<DEVELOPER>/Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS27.2.sdk/System/Library/Frameworks/Metal.framework", "target-membership": [ { "build-phase": "MyTool/frameworks", "platforms": [ "ios", "macos", "tvos", "xros" ] } ] },
+      ],
+    }, {
+      "kind": "group",
       "name": "Products",
       "children": [
         { "path": "<PRODUCTS>/MyTool", "id": "000000000000000000000120", "type": "compiled.mach-o.executable", "index": false },
@@ -32,7 +40,13 @@
       ],
       "build-settings": {
         "CODE_SIGN_STYLE": "Automatic",
+        "HEADER_SEARCH_PATHS": [
+          "$(PROJECT_DIR)/../metal-cpp",
+          "/opt/homebrew/opt/glfw/include",
+        ],
+        "LIBRARY_SEARCH_PATHS": "/opt/homebrew/opt/glfw/lib",
         "MACOSX_DEPLOYMENT_TARGET": "26.3",
+        "OTHER_LDFLAGS": "-lglfw",
         "PRODUCT_NAME": "$(TARGET_NAME)",
         "SDKROOT": "auto",
         "SUPPORTED_PLATFORMS": "$(AVAILABLE_PLATFORMS)",

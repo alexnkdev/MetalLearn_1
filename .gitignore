@@ -1,4 +1,32 @@
+# --- Xcode: per-user state (open tabs, breakpoints, personal schemes) ---
 xcuserdata/
-.DS_Store
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+
+# Keep shared schemes and workspace settings
+!xcshareddata/
+
+# --- Build output ---
 build/
 DerivedData/
+*.metallib
+*.air
+*.o
+*.dSYM/
+*.dSYM.zip
+
+# --- macOS ---
+.DS_Store
+._*
+.AppleDouble
+.Spotlight-V100
+.Trashes
+
+# --- Editors / tools ---
+.vscode/
+.idea/
+*.swp
+*~
+.cache/
+compile_commands.json
